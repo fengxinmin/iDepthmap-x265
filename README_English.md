@@ -1,3 +1,26 @@
+## Distribution
+IDepthmap-x265 provides an integrated scheme of Fast coding block partitioning based on offline model Inference in the x265 encoder. The Inference part of the scheme is provided in this project, including x265 encoder with coding block partitioning acceleration, decoder and python script.
+
+The experimental results show that, **compared with the original x265 encoder, the x265 encoder with the integrated block partition acceleration algorithm reduces the coding time by 34.53% and 55.21% respectively in medium and veryslow configurations, and only increases BD-BR by 3.56% and 3.66% respectively.** 
+
+In addition, compared with the original medium configuration, iDepthMap-x265 is faster, the coding complexity of x265 encoder integrated with the acceleration algorithm is reduced by 29.52% on average in veryslow configuration, while BD-BR is reduced by 2.26%, which proves the effectiveness of the fast coding block partitioning method proposed in this repo.
+
+The BD-rate of x265 (Origin version) accelerated in Medium configuration is shown in the following figure
+
+![](./Img2md/medium_origin.png)
+
+The BD-rate of x265 (Anchor version) accelerated in Medium configuration is shown in the following figure
+
+![](./Img2md/medium_anchor.png)
+
+
+As shown above, under Medium configuration, original x265 and Anchor x265, which integrated fast coding block partitioning algorithm, achieved an average reduction of 34.53% and 45.20% in class A, B, C and E, respectively. At the same time, BD-BR increased by 3.56% and 3.64%, and BD-PSNR decreased by -0.17dB. It is important to note that the test results for class D sequences are listed only for reference, because class D sequences are no longer included in the average calculation in the general test conditions of the latest coding standard VVC.
+
+A more convincing advantage is that **x265-veryslow with integrated coding block partitioning acceleration is better than unaccelerated x265-medium in terms of reconstruction quality, achieving an average 2.26% BD-BR decrease and 0.11dB BD-PSNR increase on long sequences**, as shown below
+
+
+![](./Img2md/veryslow_c_medium.png)
+
 ## Test Commands
 
 It should be noted that x265 is different from HM in that manny of commands must be passed through the command line rather than the configuration file. To make the control mode more uniform, all commands are passed through the command line. Therefore, the name of each YUV sequence needs to be carefully designed in the following format.
@@ -39,3 +62,10 @@ The program will recognize bit-depth of encoded YUV sequence, if it's 10 bits, `
 
 More configuration and discuss about x265 10 bit, you can refer to https://mp.weixin.qq.com/s/BmLCGH3F8LDhrPO7Zz9SLw
 
+## Acknowledge
+
+The testing framework of iDepthmap-x265 is developed based on FengAolin's framework. 
+
+## Connact
+
+Feng Xinmin, xmfeng2000@mail.ustc.edu.cn
