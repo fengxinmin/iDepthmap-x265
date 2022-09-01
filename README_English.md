@@ -1,4 +1,4 @@
-## Distribution
+## Discription
 IDepthmap-x265 provides an integrated scheme of Fast coding block partitioning based on offline model Inference in the x265 encoder. The Inference part of the scheme is provided in this project, including x265 encoder with coding block partitioning acceleration, decoder and python script.
 
 The experimental results show that, **compared with the original x265 encoder, the x265 encoder with the integrated block partition acceleration algorithm reduces the coding time by 34.53% and 55.21% respectively in medium and veryslow configurations, and only increases BD-BR by 3.56% and 3.66% respectively.** 
